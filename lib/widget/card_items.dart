@@ -32,14 +32,14 @@ class CardItems extends StatelessWidget {
                 child: Icon(
                   Icons.location_on_sharp,
                   color: kPrimaryColor,
-                  size: 31,
+                  size: 28,
                 ),
               ),
               title: const Row(
                 children: [
                   Text(
                     "Panorama Mall",
-                    style: TextStyle(fontFamily: "NEOSANSW23", fontSize: 13),
+                    style: TextStyle(fontFamily: "NEOSANSW23", fontSize: 12),
                   ),
                   SizedBox(
                     width: 5,
@@ -62,13 +62,17 @@ class CardItems extends StatelessWidget {
               ),
               subtitle: const Row(
                 children: [
-                  Text("Estimated time"),
+                  Text(
+                    "Estimated time",
+                    style: TextStyle(fontSize: 12),
+                  ),
                   SizedBox(
                     width: 10,
                   ),
                   Text(
                     "20m",
-                    style: TextStyle(color: Color.fromARGB(255, 6, 152, 45)),
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 6, 152, 45), fontSize: 12),
                   ),
                 ],
               ),

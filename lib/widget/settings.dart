@@ -6,6 +6,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 import '../views/about_evcharge_view.dart';
 import '../views/contact_view.dart';
+import '../views/login_view.dart';
 import 'custom_list_tile.dart';
 
 class Menu extends StatefulWidget {
@@ -60,14 +61,8 @@ class _MenuState extends State<Menu> {
                   leadingIcon: Icons.logout,
                   color: Colors.red,
                   onPressed: () async {
-                    isLoading = true;
-                    Navigator.pop(context);
                     await FirebaseAuth.instance.signOut();
-                    setState(() {});
-
-                    isLoading = false;
-                    setState(() {});
-
+                    Navigator.of(context).pushReplacementNamed(LoginView.id);
                     snackBar(context, "Log Out successfully", kPrimaryColor);
                   },
                 ),

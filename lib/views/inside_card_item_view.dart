@@ -105,7 +105,14 @@ class InsideCardItemView extends StatelessWidget {
                             fontSize: 16,
                             fontFamily: "NEOSANSW23"),
                       ),
-                      Text("Irbid - Abdull Hamid Sharaf ST."),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text(
+                          "Irbid - Abdull Hamid Sharaf ST",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                     ],
                   )
                 ],

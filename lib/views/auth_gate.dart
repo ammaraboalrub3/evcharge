@@ -1,3 +1,4 @@
+import 'package:evcharge/constants.dart';
 import 'package:evcharge/views/login_view.dart';
 import 'package:evcharge/views/station_home_view.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -11,7 +12,12 @@ class AuthGate extends StatelessWidget {
     return StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
-          if (snapshot.hasData) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+                child: CircularProgressIndicator(
+              color: kPrimaryColor,
+            ));
+          } else if (snapshot.hasData) {
             return StationHomeView();
           } else {
             return LoginView();

@@ -1,9 +1,9 @@
 import 'package:evcharge/views/about_evcharge_view.dart';
+import 'package:evcharge/views/auth_gate.dart';
 import 'package:evcharge/views/contact_view.dart';
 import 'package:evcharge/views/inside_card_item_view.dart';
 import 'package:evcharge/views/login_view.dart';
 import 'package:evcharge/views/register_view.dart';
-import 'package:evcharge/views/splash_screen.dart';
 import 'package:evcharge/views/station_home_view.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +35,7 @@ class EVCharge extends StatelessWidget {
         ContactView.id: (context) => const ContactView(),
       },
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: AuthGate(),
       theme: ThemeData(
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(color: Colors.white)),
