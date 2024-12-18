@@ -47,7 +47,7 @@ class _CalculateState extends State<Calculate> {
                       "0.0 JD",
                       style: TextStyle(
                           color: Colors.green,
-                          fontSize: 25,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold),
                     ),
                     const Text(
@@ -70,13 +70,13 @@ class _CalculateState extends State<Calculate> {
                             "$userInput kWh",
                             style: TextStyle(
                                 color: Colors.green,
-                                fontSize: 25,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold),
                           )
                         : Text("$userInput kWh",
                             style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 25,
+                                fontSize: 20,
                                 fontWeight: FontWeight.bold)),
                     const Text(
                       "Electricy used",

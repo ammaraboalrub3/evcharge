@@ -57,7 +57,7 @@ class _LoginViewState extends State<LoginView> {
                         Text(
                           "Log in",
                           style: TextStyle(
-                              fontSize: 35,
+                              fontSize: 28,
                               fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 29, 29, 29)),
                         ),
@@ -149,7 +149,7 @@ class _LoginViewState extends State<LoginView> {
                       children: [
                         const Text(
                           "Not a member?",
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.grey, fontSize: 12),
                         ),
                         TextButton(
                           onPressed: () {
@@ -161,7 +161,8 @@ class _LoginViewState extends State<LoginView> {
                             "Register now",
                             style: TextStyle(
                                 color: kPrimaryColor,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
                           ),
                         ),
                       ],
@@ -171,7 +172,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     const Text(
                       "By continuing, you agree to",
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 15),
                     ),
                     const SizedBox(
                       height: 10,
@@ -179,14 +180,14 @@ class _LoginViewState extends State<LoginView> {
                     Text(
                       "the  terms  and  conditions ",
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 17,
                           color: kPrimaryColor,
                           fontFamily: "NEOSANSW23"),
                     ),
                     Text(
                       " and  privacy  policy ",
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 17,
                           color: kPrimaryColor,
                           fontFamily: "NEOSANSW23"),
                     ),
@@ -195,7 +196,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     const Text(
                       "of this application",
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 15),
                     ),
                   ],
                 ),

@@ -1,7 +1,9 @@
 import 'package:evcharge/widget/custom_alert_dialog.dart';
 import 'package:evcharge/widget/custom_button.dart';
 import 'package:evcharge/widget/custom_text_form_field.dart';
+import 'package:evcharge/widget/google_map.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../constants.dart';
 import 'custom_phone_field.dart';
@@ -22,6 +24,7 @@ class _ReportMalfunctionState extends State<ReportMalfunction> {
   TextEditingController controllerPhone = TextEditingController();
 
   bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -79,6 +82,19 @@ class _ReportMalfunctionState extends State<ReportMalfunction> {
                   },
                   hintText: "Your phone",
                 ),
+                SizedBox(
+                  height: 16,
+                ),
+                Container(
+                    height: 200,
+                    width: MediaQuery.of(context).size.width,
+                    child: CustomGoogleMap(
+                      latLng: LatLng(
+                        0,
+                        0,
+                      ),
+                      zoom: 17,
+                    )),
                 SizedBox(
                   height: 16,
                 ),

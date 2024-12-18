@@ -1,10 +1,24 @@
 import 'package:evcharge/constants.dart';
 import 'package:flutter/material.dart';
 
+import '../services/location_services.dart';
+import '../services/open_map_app.dart';
 import '../views/inside_card_item_view.dart';
 
-class CardItems extends StatelessWidget {
+class CardItems extends StatefulWidget {
   const CardItems({super.key});
+
+  @override
+  State<CardItems> createState() => _CardItemsState();
+}
+
+class _CardItemsState extends State<CardItems> {
+  late LocationServices locationServices;
+  @override
+  void initState() {
+    locationServices = LocationServices();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +43,23 @@ class CardItems extends StatelessWidget {
                   child: Image.asset(logoImage)),
               trailing: Padding(
                 padding: const EdgeInsets.only(top: 18),
-                child: Icon(
-                  Icons.location_on_sharp,
-                  color: kPrimaryColor,
-                  size: 28,
+                child: GestureDetector(
+                  onTap: () async {
+                    await locationServices.checkAndRequestLocationScervice();
+                    var hasPermission = await locationServices
+                        .checkAndRequestLocationPermission();
+                    if (hasPermission) {
+                      OpenMap().openMap(
+                        31.917656,
+                        35.902432,
+                      );
+                    }
+                  },
+                  child: Icon(
+                    Icons.location_on_sharp,
+                    color: kPrimaryColor,
+                    size: 24,
+                  ),
                 ),
               ),
               title: const Row(

@@ -1,11 +1,35 @@
 import 'package:evcharge/constants.dart';
 import 'package:evcharge/widget/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class InsideCardItemView extends StatelessWidget {
+import '../services/location_services.dart';
+import '../services/open_map_app.dart';
+
+class InsideCardItemView extends StatefulWidget {
   const InsideCardItemView({super.key});
 
   static String id = "InsideCardItemView";
+
+  @override
+  State<InsideCardItemView> createState() => _InsideCardItemViewState();
+}
+
+class _InsideCardItemViewState extends State<InsideCardItemView> {
+  late CameraPosition initialCameraPosition;
+  late LocationServices locationServices;
+
+  void initState() {
+    initialCameraPosition = CameraPosition(
+        zoom: 18,
+        target: LatLng(
+          31.917656,
+          35.902432,
+        ));
+    locationServices = LocationServices();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +80,7 @@ class InsideCardItemView extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(left: 12, top: 12),
-              height: 125,
+              height: 150,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
@@ -109,7 +133,7 @@ class InsideCardItemView extends StatelessWidget {
                         width: MediaQuery.of(context).size.width / 2,
                         child: Text(
                           "Irbid - Abdull Hamid Sharaf ST",
-                          maxLines: 2,
+                          maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -119,9 +143,39 @@ class InsideCardItemView extends StatelessWidget {
               ),
             ),
             SizedBox(
+              height: 16,
+            ),
+            SizedBox(
+                height: 200,
+                width: MediaQuery.of(context).size.width,
+                child: GoogleMap(
+                    markers: {
+                      Marker(
+                          markerId: MarkerId("1"),
+                          draggable: true,
+                          position: LatLng(
+                            31.917656,
+                            35.902432,
+                          ))
+                    },
+                    zoomControlsEnabled: false,
+                    initialCameraPosition: initialCameraPosition)),
+            SizedBox(
               height: 24,
             ),
-            CustomButton(onTap: () {}, text: "Get Diriction"),
+            CustomButton(
+                onTap: () async {
+                  await locationServices.checkAndRequestLocationScervice();
+                  var hasPermission = await locationServices
+                      .checkAndRequestLocationPermission();
+                  if (hasPermission) {
+                    OpenMap().openMap(
+                      31.917656,
+                      35.902432,
+                    );
+                  }
+                },
+                text: "Get Diriction"),
           ],
         ),
       ),

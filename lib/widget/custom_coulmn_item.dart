@@ -11,7 +11,7 @@ class CustomCoulmnItem extends StatelessWidget {
       children: [
         Image.asset(
           logoImage,
-          width: 200,
+          width: 160,
         ),
         const Text(
           "EVCharge",

@@ -25,7 +25,7 @@ class CustomListTile extends StatelessWidget {
         child: ListTile(
           title: Text(
             text,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13),
           ),
           leading: Icon(
             leadingIcon,

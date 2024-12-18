@@ -15,7 +15,10 @@ class StationBodyItems extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         slivers: [
           SliverToBoxAdapter(
-            child: Image.asset(stationImage),
+            child: Image.asset(
+              stationImage,
+              height: 300,
+            ),
           ),
           const SliverToBoxAdapter(
             child: CustomTitleStation(

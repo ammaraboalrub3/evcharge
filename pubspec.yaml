@@ -42,6 +42,10 @@ dependencies:
   modal_progress_hud_nsn: ^0.5.1
   flutter_launcher_icons: "^0.13.1"
   convex_bottom_bar: ^3.2.0
+  google_maps_flutter: ^2.5.3
+  location: ^5.0.3
+  url_launcher: ^6.1.8
+  geolocator: ^11.1.0
 
 
 
@@ -84,6 +88,8 @@ flutter:
     - assets/images/Fuel station-rafiki.png
     - assets/images/icon.png
     - assets/images/station.PNG
+    - assets/images/marker.png
+    - assets/images/Yarmouk_University_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -58,7 +58,7 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                           Image.asset(
                             logoImage,
-                            width: 100,
+                            width: 75,
                           ),
                         ],
                       ),
@@ -68,14 +68,14 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                     Image.asset(
                       registerImage,
-                      width: 200,
+                      width: 160,
                     ),
                     const Row(
                       children: [
                         Text(
                           "Register",
                           style: TextStyle(
-                              fontSize: 35,
+                              fontSize: 28,
                               fontWeight: FontWeight.bold,
                               color: Color.fromARGB(255, 29, 29, 29)),
                         )
@@ -85,7 +85,7 @@ class _RegisterViewState extends State<RegisterView> {
                       children: [
                         Text(
                           "Register in EVCharge and make your life easier",
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.grey, fontSize: 13),
                         ),
                       ],
                     ),
@@ -182,7 +182,7 @@ class _RegisterViewState extends State<RegisterView> {
                       children: [
                         const Text(
                           "Already have an account?",
-                          style: TextStyle(color: Colors.grey),
+                          style: TextStyle(color: Colors.grey, fontSize: 12),
                         ),
                         TextButton(
                           onPressed: () {
@@ -194,7 +194,8 @@ class _RegisterViewState extends State<RegisterView> {
                             "Log in",
                             style: TextStyle(
                                 color: kPrimaryColor,
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14),
                           ),
                         )
                       ],
@@ -204,7 +205,7 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                     const Text(
                       "By continuing, you agree to",
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 15),
                     ),
                     const SizedBox(
                       height: 10,
@@ -212,14 +213,14 @@ class _RegisterViewState extends State<RegisterView> {
                     Text(
                       "the  terms  and  conditions ",
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 17,
                           color: kPrimaryColor,
                           fontFamily: "NEOSANSW23"),
                     ),
                     Text(
                       " and  privacy  policy ",
                       style: TextStyle(
-                          fontSize: 20,
+                          fontSize: 17,
                           color: kPrimaryColor,
                           fontFamily: "NEOSANSW23"),
                     ),
@@ -228,7 +229,7 @@ class _RegisterViewState extends State<RegisterView> {
                     ),
                     const Text(
                       "of this application",
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 15),
                     ),
                   ],
                 ),
