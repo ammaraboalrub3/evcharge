@@ -1,4 +1,5 @@
 import 'package:evcharge/constants.dart';
+import 'package:evcharge/model/station_model.dart';
 import 'package:flutter/material.dart';
 
 import '../services/location_services.dart';
@@ -6,7 +7,8 @@ import '../services/open_map_app.dart';
 import '../views/inside_card_item_view.dart';
 
 class CardItems extends StatefulWidget {
-  const CardItems({super.key});
+  const CardItems({super.key, required this.stationModel});
+  final StationModel stationModel;
 
   @override
   State<CardItems> createState() => _CardItemsState();
@@ -14,6 +16,7 @@ class CardItems extends StatefulWidget {
 
 class _CardItemsState extends State<CardItems> {
   late LocationServices locationServices;
+
   @override
   void initState() {
     locationServices = LocationServices();
@@ -26,7 +29,8 @@ class _CardItemsState extends State<CardItems> {
       padding: const EdgeInsets.only(bottom: 16),
       child: GestureDetector(
         onTap: () {
-          Navigator.pushNamed(context, InsideCardItemView.id);
+          Navigator.pushNamed(context, InsideCardItemView.id,
+              arguments: widget.stationModel);
         },
         child: Card(
           elevation: 3,
@@ -34,15 +38,17 @@ class _CardItemsState extends State<CardItems> {
             padding: const EdgeInsets.only(top: 18, bottom: 18),
             child: ListTile(
               leading: Container(
-                  padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: const Color.fromARGB(255, 241, 241, 241)),
                   height: 75,
                   width: 75,
-                  child: Image.asset(logoImage)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: Image.network(
+                      widget.stationModel.stationImage ?? demoStation,
+                      fit: BoxFit.cover,
+                    ),
+                  )),
               trailing: Padding(
-                padding: const EdgeInsets.only(top: 18),
+                padding: EdgeInsets.only(top: 18),
                 child: GestureDetector(
                   onTap: () async {
                     await locationServices.checkAndRequestLocationScervice();
@@ -50,8 +56,8 @@ class _CardItemsState extends State<CardItems> {
                         .checkAndRequestLocationPermission();
                     if (hasPermission) {
                       OpenMap().openMap(
-                        31.917656,
-                        35.902432,
+                        double.parse(widget.stationModel.locationLat),
+                        double.parse(widget.stationModel.locationLong),
                       );
                     }
                   },
@@ -62,42 +68,36 @@ class _CardItemsState extends State<CardItems> {
                   ),
                 ),
               ),
-              title: const Row(
+              title: Row(
                 children: [
                   Text(
-                    "Panorama Mall",
-                    style: TextStyle(fontFamily: "NEOSANSW23", fontSize: 12),
+                    widget.stationModel.stationName,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontFamily: "NEOSANSW23", fontSize: 11),
                   ),
                   SizedBox(
                     width: 5,
-                  ),
-                  SizedBox(
-                      height: 20,
-                      width: 10,
-                      child: VerticalDivider(
-                        thickness: 2,
-                      )),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    "10.5 km",
-                    style: TextStyle(
-                        fontSize: 13, color: Color.fromARGB(255, 6, 152, 45)),
                   ),
                 ],
               ),
-              subtitle: const Row(
+              subtitle: Row(
                 children: [
                   Text(
-                    "Estimated time",
-                    style: TextStyle(fontSize: 12),
-                  ),
-                  SizedBox(
-                    width: 10,
+                    "Distance ",
+                    style: TextStyle(
+                      fontSize: 13,
+                    ),
                   ),
                   Text(
-                    "20m",
+                    widget.stationModel.distance,
+                    style: TextStyle(
+                        fontSize: 13, color: Color.fromARGB(255, 6, 152, 45)),
+                  ),
+                  SizedBox(
+                    width: 3,
+                  ),
+                  Text(
+                    "m",
                     style: TextStyle(
                         color: Color.fromARGB(255, 6, 152, 45), fontSize: 12),
                   ),

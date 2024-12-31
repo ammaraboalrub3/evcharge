@@ -13,6 +13,7 @@ class CustomTextField extends StatelessWidget {
     this.hintStyle,
     this.onSaved,
     this.maxLines = 1,
+    this.maxLength,
   });
   final String? hintText;
   final TextInputType? keyboardType;
@@ -25,10 +26,12 @@ class CustomTextField extends StatelessWidget {
   final TextStyle? hintStyle;
   final void Function(String?)? onSaved;
   final int? maxLines;
+  final int? maxLength;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      maxLength: maxLength,
       maxLines: maxLines,
       onSaved: onSaved,
       controller: controller,

@@ -54,25 +54,20 @@ class _SplashSceenState extends State<SplashSceen> {
           SizedBox(
             height: 40,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Supervisor By",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                      fontFamily: "NEOSANSW23")),
-              SizedBox(
-                width: 10,
-              ),
-              Text("Amera Jaradat",
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 76, 152, 78),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 22,
-                      fontFamily: "NEOSANSW23"))
-            ],
+          Text("Supervisor By",
+              style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  fontFamily: "NEOSANSW23")),
+          SizedBox(
+            width: 16,
           ),
+          Text("Amera Jaradat",
+              style: TextStyle(
+                  color: Color.fromARGB(255, 76, 152, 78),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  fontFamily: "NEOSANSW23")),
         ],
       ),
     );

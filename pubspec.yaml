@@ -46,6 +46,7 @@ dependencies:
   location: ^5.0.3
   url_launcher: ^6.1.8
   geolocator: ^11.1.0
+  dio: ^5.7.0
 
 
 
@@ -90,6 +91,7 @@ flutter:
     - assets/images/station.PNG
     - assets/images/marker.png
     - assets/images/Yarmouk_University_logo.png
+    - assets/images/station.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

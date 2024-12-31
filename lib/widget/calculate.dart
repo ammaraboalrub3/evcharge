@@ -1,7 +1,10 @@
 import 'package:evcharge/constants.dart';
+import 'package:evcharge/model/price_model.dart';
 import 'package:evcharge/widget/custom_button.dart';
 import 'package:evcharge/widget/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+
+import '../services/get_price.dart';
 
 class Calculate extends StatefulWidget {
   const Calculate({super.key});
@@ -16,6 +19,8 @@ class _CalculateState extends State<Calculate> {
   GlobalKey<FormState> formKey = GlobalKey();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   double userInput = 0;
+  PriceModel priceModel = PriceModel(price: 0);
+  bool isloading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +48,17 @@ class _CalculateState extends State<Calculate> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      "0.0 JD",
-                      style: TextStyle(
-                          color: Colors.green,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold),
-                    ),
+                    isloading
+                        ? CircularProgressIndicator(
+                            color: Colors.green,
+                          )
+                        : Text(
+                            "${priceModel.price} JD",
+                            style: TextStyle(
+                                color: Colors.green,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold),
+                          ),
                     const Text(
                       "Amount",
                       style: TextStyle(color: Colors.grey),
@@ -88,6 +97,7 @@ class _CalculateState extends State<Calculate> {
                     SizedBox(
                         width: 200,
                         child: CustomTextField(
+                          maxLength: 4,
                           validator: (value) {
                             if (value?.isEmpty ?? true) {
                               return "Field is Required To Calculate";
@@ -106,11 +116,17 @@ class _CalculateState extends State<Calculate> {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 60),
                       child: CustomButton(
-                          onTap: () {
+                          onTap: () async {
                             if (formKey.currentState!.validate()) {
                               userInput =
                                   double.parse(controllerUserInput.text);
                               autovalidateMode = AutovalidateMode.disabled;
+                              isloading = true;
+                              priceModel =
+                                  await PriceInfo().getPrice(kWh: userInput);
+
+                              setState(() {});
+                              isloading = false;
                               setState(() {});
                             } else {
                               autovalidateMode = AutovalidateMode.always;
