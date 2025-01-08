@@ -30,6 +30,7 @@ class _InsideCardItemViewState extends State<InsideCardItemView> {
   Widget build(BuildContext context) {
     StationModel stationModel =
         ModalRoute.of(context)!.settings.arguments as StationModel;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
@@ -105,14 +106,16 @@ class _InsideCardItemViewState extends State<InsideCardItemView> {
                     children: [
                       Text(
                         "Distance : ",
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Colors.black,
-                            fontSize: 14,
+                            fontSize: 13,
                             fontFamily: "NEOSANSW23"),
                       ),
                       Text(
-                        "${stationModel.distance} m",
-                        style: TextStyle(color: Colors.green, fontSize: 14),
+                        "${stationModel.distanceInKm.toStringAsFixed(3)} Km",
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(color: Colors.green, fontSize: 13),
                       ),
                     ],
                   ),

@@ -5,7 +5,7 @@ class StationModel {
   final String locationLat;
   final String locationLong;
   final String? stationImage;
-  final String distance;
+  final double distanceInKm;
 
   StationModel({
     required this.id,
@@ -14,10 +14,14 @@ class StationModel {
     required this.locationLat,
     required this.locationLong,
     required this.stationImage,
-    required this.distance,
+    required this.distanceInKm,
   });
 
-  factory StationModel.fromJson(json) {
+  factory StationModel.fromJson(Map<String, dynamic> json) {
+    double distanceInMeters =
+        double.tryParse(json["distance_from_user"]) ?? 0.0;
+    double distanceInKm = distanceInMeters / 1000;
+
     return StationModel(
       id: json["station_id"],
       stationName: json["title_en"],
@@ -25,7 +29,7 @@ class StationModel {
       locationLat: json["location_lat"],
       locationLong: json["location_long"],
       stationImage: json["cover"],
-      distance: json["distance_from_user"],
+      distanceInKm: distanceInKm,
     );
   }
 }

@@ -89,7 +89,7 @@ class _CardItemsState extends State<CardItems> {
                     ),
                   ),
                   Text(
-                    widget.stationModel.distance,
+                    "${widget.stationModel.distanceInKm.toStringAsFixed(3)}",
                     style: TextStyle(
                         fontSize: 13, color: Color.fromARGB(255, 6, 152, 45)),
                   ),
@@ -97,7 +97,7 @@ class _CardItemsState extends State<CardItems> {
                     width: 3,
                   ),
                   Text(
-                    "m",
+                    "Km",
                     style: TextStyle(
                         color: Color.fromARGB(255, 6, 152, 45), fontSize: 12),
                   ),
