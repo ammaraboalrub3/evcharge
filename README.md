@@ -5,5 +5,6 @@ Key features include:
     - Calculating the estimated charging cost.
     - Providing an emergency distress signal feature for user safety. 
 
+https://github.com/ammaraboalrub3/evcharge/issues/1
 
 
