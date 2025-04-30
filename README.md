@@ -4,7 +4,9 @@ Key features include:
     - Locating the nearest available charging stations using GPS.
     - Calculating the estimated charging cost.
     - Providing an emergency distress signal feature for user safety. 
+    
 Demo Video => https://www.youtube.com/watch?v=0_eVvxfBUQs
+
 ![Image](https://github.com/user-attachments/assets/6ed8bd9f-c31a-44b9-a705-8f46f71f28d2)
 ![Image](https://github.com/user-attachments/assets/8d9d1772-0d9f-411e-90e3-e59507e07ab9)
 ![Image](https://github.com/user-attachments/assets/8539fbbf-69b8-425c-8bff-3ada17d6cae3)
