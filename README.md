@@ -4,6 +4,9 @@ A Flutter mobile app to locate electric vehicle charging stations and request ro
 
 ## 🚀 Features
 
+- Implemented Clean Architecture
+- Used Cubit for state management
+- Responsive UI for Android & iOS
 - Interactive map using Google Maps API
 - User location tracking and permission handling
 - Firebase Authentication and Firestore integration
@@ -39,6 +42,7 @@ A Flutter mobile app to locate electric vehicle charging stations and request ro
 ## 🧑‍💻 Developed By
 
 - [@ammaraboalrub3](https://github.com/ammaraboalrub3)
+
 
 
 
